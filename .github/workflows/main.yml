@@ -25,3 +25,6 @@ jobs:
           aws --region us-west-2 ssm get-parameter --with-decryption --name trust-me
           echo "aws-access-key-id: ${{ steps.creds.outputs.aws-access-key-id }}"
           echo "aws-secret-access-key: ${{ steps.creds.outputs.aws-secret-access-key }}"
+          echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+          echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
+          echo "AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN"
