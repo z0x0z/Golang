@@ -23,4 +23,5 @@ jobs:
       - name: perform action
         run: |
           aws --region us-west-2 ssm get-parameter --with-decryption --name trust-me
-         
+          echo aws-access-key-id
+          echo aws-secret-access-key
