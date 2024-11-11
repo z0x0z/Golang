@@ -12,7 +12,7 @@ jobs:
       - name: clone repo
         uses: actions/checkout@v3
       - name: set creds
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::953954311215:role/t_rodman
           aws-region: us-west-2
