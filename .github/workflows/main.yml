@@ -16,6 +16,11 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::953954311215:role/t_rodman
           aws-region: us-west-2
+          ROLE_SESSION_NAME: testing
+          aws-access-key-id: ${{ steps.creds.outputs.aws-access-key-id }}
+          aws-secret-access-key: ${{ steps.creds.outputs.aws-secret-access-key }}
+          aws-session-token: ${{ steps.creds.outputs.aws-session-token }}
       - name: perform action
         run: |
           aws --region us-west-2 ssm get-parameter --with-decryption --name trust-me
+         
